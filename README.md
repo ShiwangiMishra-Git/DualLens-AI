@@ -46,6 +46,12 @@ It does so across three investor profiles — **Conservative**, **Balanced**, an
 
 ---
 
+## Sample Output — Section 5B Strategy Comparison
+
+![Strategy Comparison — Conservative, Balanced, Growth rankings](assets/ranking_table.png)
+
+---
+
 ## Problem Statement
 
 Five company PDFs exceeded the model's context window. A RAG pipeline with map-reduce summarisation compresses each PDF into a per-company AI summary used for signal extraction and ranking.
