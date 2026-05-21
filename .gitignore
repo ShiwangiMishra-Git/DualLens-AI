@@ -15,6 +15,11 @@ venv/
 # Generated cache (reproducible — regenerate by running the notebook)
 cache/*
 !cache/.gitkeep
+# Seed cache files — pre-generated so fresh clones skip expensive LLM calls
+!cache/pdf_summary.txt
+!cache/ai_features.json
+!cache/strategy_explanations.json
+!cache/strategy_recommendations.json
 
 # Generated outputs
 outputs/*
