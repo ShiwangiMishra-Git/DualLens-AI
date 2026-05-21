@@ -32,6 +32,20 @@ It does so across three investor profiles — **Conservative**, **Balanced**, an
 
 ---
 
+## Key Contributions
+
+| Contribution | What Was Built |
+|---|---|
+| **RAG Pipeline** | Metadata-filtered retrieval over 5 company PDFs; company-aware `$in` filter prevents cross-company bleed; scope-refusal for out-of-scope queries |
+| **Deterministic Scoring** | LLM confined to 3-label signal classification (`none` / `partial` / `full`); all arithmetic computed in Python — rankings are fully reproducible |
+| **Evidence-backed Signals** | 8 investment signals each returned with supporting quote, reason, and confidence level — every classification is traceable to source text |
+| **NVDA Signal Design** | Added `hardware_ai` and `infrastructure_moat` signals specifically to capture NVIDIA's silicon and CUDA moat, which standard product signals miss entirely |
+| **Multi-strategy Ranking** | Conservative / Balanced / Growth profiles with explicit weight rationale; same signals, different outcomes — NVDA flips from Sell to Hold under Growth |
+| **LLM-as-Judge Evaluation** | Three independent `gpt-4o` evaluations (Signal Groundedness 5/5, Explanation Consistency 5/5, Relevance 5/5) plus RAG-specific groundedness and relevance |
+| **Sensitivity Analysis** | ±20% weight shifts across all signals confirm rankings are stable — MSFT #1 holds under every perturbation |
+
+---
+
 ## Problem Statement
 
 Five company PDFs exceeded the model's context window. A RAG pipeline with map-reduce summarisation compresses each PDF into a per-company AI summary used for signal extraction and ranking.
