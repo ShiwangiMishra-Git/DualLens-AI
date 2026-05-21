@@ -177,6 +177,8 @@ The extractor reads each company's summary and classifies it on eight investment
 | Risk Mitigation | Does the company have an AI safety/governance plan? |
 | Infrastructure Moat | Is the company's technology what the rest of the AI industry depends on? |
 
+Two signals — **Hardware AI** and **Infrastructure Moat** — were added specifically to avoid underscoring NVIDIA. Standard product signals (`enterprise_ai`, `consumer_ai`, `public_release`) measure how a company deploys AI to customers. NVIDIA has no consumer or enterprise AI products — it builds the infrastructure every other company's AI runs on. Without these two signals, NVIDIA would rank last under every strategy, which misrepresents a company whose GPUs and CUDA ecosystem power the AI initiatives of every other company in the analysis.
+
 Each signal is classified as `none`, `partial`, or `full` — nothing more. This narrow, three-way classification is a deliberate design choice. Asking the model to pick from three options is a much simpler and more reliable task than asking it to invent a number on a continuous scale. The output is short, which means there's less opportunity for the model to drift or hallucinate.
 
 Every classification also comes with a supporting quote, a reason, and a confidence level. This makes every signal traceable back to the source text.
@@ -231,7 +233,7 @@ A separate, more capable language model — `gpt-4o`, used only here — acts as
 | What's being evaluated | The question it answers | Result |
 |------------------------|------------------------|--------|
 | Signal Groundedness | Is every signal label backed by actual text from the summary? | 5/5 |
-| Explanation Consistency | Does the explanation match the pre-computed scores exactly? | 3.67/5 |
+| Explanation Consistency | Does the explanation match the pre-computed scores exactly? | 5/5 |
 | Explanation Relevance | Does the explanation actually answer the investment question? | 5/5 |
 
 The RAG pipeline is also evaluated separately, including a test where the system is asked about a company that isn't in the dataset. It correctly refused to answer — scoring 5/5 for relevance on that question.

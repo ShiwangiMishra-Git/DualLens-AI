@@ -428,6 +428,14 @@ def compute_ai_score(signals: dict, strategy: str) -> float:
 
 The weight profiles reflect each investor's priorities:
 
+> **Decision: Why `hardware_ai` and `infrastructure_moat` were added**
+>
+> The initial six signals (`enterprise_ai`, `consumer_ai`, `public_release`, `core_business_alignment`, `novel_research`, `risk_mitigation_present`) all measure how a company deploys AI products to customers. They systematically underscore NVIDIA, which has no consumer or enterprise AI products — it builds the infrastructure every other company's AI runs on. Without these two signals, NVIDIA would rank last under every strategy: a result that misrepresents the only company whose hardware and software the entire AI industry depends on.
+>
+> `hardware_ai` captures silicon ownership — NVIDIA is the only company scoring `full`. `infrastructure_moat` captures foundational compute dependency — NVIDIA's CUDA ecosystem is the de facto standard; MSFT/GOOGL/AMZN score `partial` for their cloud platforms.
+>
+> Under Conservative weights both signals contribute only 0.40 pts — NVIDIA's zero enterprise/consumer signals still dominate and it ranks Sell. Under Growth weights they contribute 1.10 pts, which is enough to flip NVIDIA to Hold. This Growth flip is the most investment-relevant finding in the project: NVIDIA is a viable investment only for growth-oriented investors, and only because of infrastructure dominance.
+
 ```python
 AI_SIGNAL_WEIGHTS_BY_STRATEGY = {
     "conservative": {
@@ -566,13 +574,13 @@ AI Summary:
 >
 > The alternative was to let the model narrate the investment case freely, giving it access to the signal evidence but not the pre-computed scores — allowing it to form its own view. The risk is that a freely narrating model might rank companies differently from the Python engine, producing an explanation that contradicts the ranking table.
 >
-> The constrained approach keeps scores and narrative in lockstep by construction. The cost is visible in the evaluation: the Consistency evaluator scored this component 3.67/5, meaning even the constrained model occasionally refers to a score slightly differently from the table, or adds context that is adjacent to but not strictly in the inputs. Perfect consistency from a language model is not achievable — only constrainable.
+> The constrained approach keeps scores and narrative in lockstep by construction. The Consistency evaluator scored this component 5/5, meaning the prompt constraints successfully kept the narrative aligned with the pre-computed scores. Perfect consistency from a language model is not guaranteed — the constraint works here because the pre-computed table is provided as an explicit fact and the model is instructed not to deviate from it.
 
 > **Decision: LLM-written prose vs. a structured template**
 >
 > A template-generated explanation (e.g., `{ticker} earns a {rec} with a total score of {total}...`) would be perfectly accurate — it reads directly from the Python output. But it would be robotic and fail to explain *why* the ranking came out as it did.
 >
-> The LLM explanation scored 5/5 on relevance, meaning it genuinely answered the investment question in a way a human investor would find useful. That usefulness justifies accepting the 3.67/5 consistency score — a template would score 5/5 on consistency but much lower on relevance.
+> The LLM explanation scored 5/5 on both consistency and relevance — it accurately reflected the pre-computed scores and genuinely answered the investment question in a way a human investor would find useful. A template would guarantee consistency but produce robotic output with no explanatory value.
 
 The three strategy explanations are saved to `cache/strategy_explanations.json` and loaded from cache on subsequent runs.
 
@@ -598,7 +606,7 @@ The evaluation layer is the quality gate. Three separate judge prompts — all u
 >
 > A single evaluator asking "how good is this output overall?" would produce a single number that blends groundedness, consistency, and relevance together. If that number is low, you don't know which dimension failed.
 >
-> Three separate evaluators give diagnostic precision: the system can identify specifically that the Explanation Consistency score (3.67/5) is the weak point while Groundedness and Relevance are both 5/5. That tells you exactly where to improve the system — tighten the explanation prompt constraints — rather than just "overall quality needs work."
+> Three separate evaluators give diagnostic precision: each dimension can be assessed independently. In this run all three scored 5/5 — Signal Groundedness, Explanation Consistency, and Explanation Relevance — confirming that signal labels are traceable, the narrative matches the pre-computed scores, and the explanation answers the investment question. If any dimension had scored low, the separation would identify exactly where to improve rather than just "overall quality needs work."
 
 ### Signal Groundedness Evaluator
 
