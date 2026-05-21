@@ -24,9 +24,9 @@ DualLens-AI answers: *"Which tech company is the best investment given its AI in
 It does so across three investor profiles — **Conservative**, **Balanced**, and **Growth** — using two complementary approaches:
 
 | Approach | Description |
-|----------|-------------|
+|---|---|
 | **Section 5A — LLM Scoring** | Single LLM prompt assigns numeric scores and writes a ranked narrative |
-| **Section 5B — Deterministic** | LLM extracts 8 binary signals; Python computes all scores deterministically |
+| **Section 5B — Deterministic** | LLM extracts 8 AI signals; Python computes all scores deterministically |
 
 **Recommended approach: Section 5B.** Rankings are fully reproducible — identical inputs always produce identical rankings, regardless of how many times the notebook is run.
 
@@ -89,7 +89,7 @@ Passing five company PDFs directly to `gpt-4o-mini` for investment ranking excee
 ## AI Signals Extracted (Section 5B)
 
 | Signal | Investment Meaning |
-|--------|--------------------|
+|---|---|
 | `core_business_alignment` | Direct revenue impact — AI drives primary business model |
 | `enterprise_ai` | Recurring enterprise revenue — B2B platform and SaaS contracts |
 | `public_release` | Commercialisation maturity — product is live, not just announced |
@@ -104,7 +104,7 @@ Passing five company PDFs directly to `gpt-4o-mini` for investment ranking excee
 ## Key Results (Section 5B — Deterministic, Latest Run)
 
 | Strategy | Rank 1 | Score | Rank 2 | Score | Rank 3 | Score |
-|----------|--------|-------|--------|-------|--------|-------|
+|---|---|---|---|---|---|---|
 | Conservative | MSFT | 3.47/4.5 Buy | GOOGL | 3.19/4.5 Hold | AMZN | 2.88/4.5 Hold |
 | Balanced | MSFT | 3.49/4.5 Buy | GOOGL | 3.26/4.5 Buy | AMZN | 3.01/4.5 Hold |
 | Growth | MSFT | 3.41/4.5 Buy | GOOGL | 3.28/4.5 Buy | AMZN | 2.96/4.5 Hold |
@@ -132,7 +132,7 @@ pip install -r requirements.txt
 
 ### 3. Configure API credentials
 
-Copy `.env.example` to `config.json` and fill in your API key and base URL:
+Create a `config.json` file in the project root:
 
 ```json
 {
@@ -141,7 +141,7 @@ Copy `.env.example` to `config.json` and fill in your API key and base URL:
 }
 ```
 
-> Tested against the Great Learning OpenAI-compatible proxy using `gpt-4o-mini` for the pipeline and `gpt-4o` for evaluation.
+> Tested against the Great Learning OpenAI-compatible proxy using `gpt-4o-mini` for the pipeline and `gpt-4o` for evaluation. See `.env.example` for a reference of the required fields.
 
 ### 4. Run the notebook
 
@@ -158,9 +158,9 @@ Open `notebooks/DualLens_Analytics.ipynb` and run all cells top-to-bottom.
 Three LLM-as-Judge (`gpt-4o`) evaluations are run at the end of the notebook:
 
 | Evaluation | What It Checks | Score |
-|------------|---------------|-------|
+|---|---|---|
 | Signal Groundedness | Every signal classification is traceable to text in the AI summary | 5/5 |
-| Explanation Consistency | The LLM narrative references only pre-computed scores and rankings | 3.67/5 |
+| Explanation Consistency | The LLM narrative references only pre-computed scores and rankings | 5/5 |
 | Explanation Relevance | The explanation directly answers the investment question | 5/5 |
 
 The RAG pipeline is separately evaluated for Groundedness (5/5) and Relevance (5/5) across six test questions, including a correct scope-refusal for an out-of-scope company.
@@ -205,7 +205,7 @@ DualLens-AI/
 ## Future Scope
 
 | Enhancement | What It Enables |
-|-------------|-----------------|
+|---|---|
 | Persist ChromaDB to disk | Scale to S&P 500 tech sector without re-embedding on every run |
 | Add `revenueGrowth`, `forwardPE`, `freeCashflow` metrics | Distinguish profitable growers from large-but-stagnant companies |
 | Streamlit / Gradio UI | Make the tool usable by non-technical investors |
