@@ -1,0 +1,29 @@
+# Secrets
+config.json
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated cache (reproducible — regenerate by running the notebook)
+cache/*
+!cache/.gitkeep
+
+# Generated outputs
+outputs/*
+!outputs/.gitkeep
+
+# ChromaDB vector store (large, regenerable)
+chroma_db/
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
