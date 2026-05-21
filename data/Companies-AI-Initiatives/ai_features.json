@@ -1,0 +1,252 @@
+{
+  "MSFT": {
+    "enterprise_ai": {
+      "level": "full",
+      "evidence": "integrated AI capabilities into its Azure cloud services, enhancing infrastructure for developers with tools like Azure OpenAI Service",
+      "reason": "Microsoft has a commercially deployed enterprise AI platform generating business revenue through Azure OpenAI Service.",
+      "confidence": "high"
+    },
+    "consumer_ai": {
+      "level": "full",
+      "evidence": "embedding AI features into products such as Office 365 and Dynamics 365",
+      "reason": "Microsoft has broadly deployed consumer AI products like Office 365 that are used at scale.",
+      "confidence": "high"
+    },
+    "hardware_ai": {
+      "level": "none",
+      "evidence": "No mention of proprietary AI hardware",
+      "reason": "The summary does not indicate any proprietary AI hardware development or production.",
+      "confidence": "high"
+    },
+    "public_release": {
+      "level": "full",
+      "evidence": "AI features into products such as Office 365 and Dynamics 365",
+      "reason": "Microsoft's AI products are publicly available and actively used by customers.",
+      "confidence": "high"
+    },
+    "core_business_alignment": {
+      "level": "full",
+      "evidence": "AI capabilities into its Azure cloud services",
+      "reason": "AI is central to Microsoft's primary revenue through Azure and productivity tools.",
+      "confidence": "high"
+    },
+    "novel_research": {
+      "level": "partial",
+      "evidence": "advancing its AI initiatives across multiple domains",
+      "reason": "There is some indication of research activity, but it lacks specific novel breakthroughs.",
+      "confidence": "medium"
+    },
+    "risk_mitigation_present": {
+      "level": "partial",
+      "evidence": "faces risks from regulatory scrutiny and competition",
+      "reason": "There is general risk awareness mentioned, but no specific measures are described.",
+      "confidence": "medium"
+    },
+    "infrastructure_moat": {
+      "level": "partial",
+      "evidence": "integrated AI capabilities into its Azure cloud services",
+      "reason": "Microsoft provides AI cloud infrastructure, but it is not the dominant foundational layer for the broader AI industry.",
+      "confidence": "medium"
+    }
+  },
+  "GOOGL": {
+    "enterprise_ai": {
+      "level": "partial",
+      "evidence": "integrating generative AI into Google Workspace products",
+      "reason": "Google has some enterprise AI offerings, but they are not yet at commercial scale.",
+      "confidence": "medium"
+    },
+    "consumer_ai": {
+      "level": "full",
+      "evidence": "integrating generative AI into Google Workspace products like Docs and Sheets",
+      "reason": "Google has broadly deployed consumer AI products that are used at scale.",
+      "confidence": "high"
+    },
+    "hardware_ai": {
+      "level": "none",
+      "evidence": "No mention of proprietary AI hardware",
+      "reason": "The summary does not indicate any proprietary AI hardware development or production.",
+      "confidence": "high"
+    },
+    "public_release": {
+      "level": "full",
+      "evidence": "integrating generative AI into Google Workspace products",
+      "reason": "Google's AI products are publicly available and actively used by customers.",
+      "confidence": "high"
+    },
+    "core_business_alignment": {
+      "level": "full",
+      "evidence": "innovate in the AI space with a focus on research, consumer applications, and cloud services",
+      "reason": "AI is central to Google's primary revenue through its cloud services and consumer products.",
+      "confidence": "high"
+    },
+    "novel_research": {
+      "level": "full",
+      "evidence": "Google continues to innovate in the AI space",
+      "reason": "Google is actively engaged in significant novel AI research with competitive differentiation.",
+      "confidence": "high"
+    },
+    "risk_mitigation_present": {
+      "level": "partial",
+      "evidence": "potential risks include data privacy concerns",
+      "reason": "There is general risk awareness mentioned, but no specific measures are described.",
+      "confidence": "medium"
+    },
+    "infrastructure_moat": {
+      "level": "partial",
+      "evidence": "TensorFlow framework remains a foundational tool for machine learning development",
+      "reason": "Google provides AI cloud infrastructure, but it is not the dominant foundational layer for the broader AI industry.",
+      "confidence": "medium"
+    }
+  },
+  "AMZN": {
+    "enterprise_ai": {
+      "level": "full",
+      "evidence": "AWS offers a suite of machine learning services",
+      "reason": "Amazon has a commercially deployed enterprise AI platform generating business revenue through AWS.",
+      "confidence": "high"
+    },
+    "consumer_ai": {
+      "level": "full",
+      "evidence": "Alexa continues to evolve with new voice recognition capabilities",
+      "reason": "Amazon has broadly deployed consumer AI products like Alexa that are used at scale.",
+      "confidence": "high"
+    },
+    "hardware_ai": {
+      "level": "none",
+      "evidence": "No mention of proprietary AI hardware",
+      "reason": "The summary does not indicate any proprietary AI hardware development or production.",
+      "confidence": "high"
+    },
+    "public_release": {
+      "level": "full",
+      "evidence": "AWS offers a suite of machine learning services",
+      "reason": "Amazon's AI products are publicly available and actively used by customers.",
+      "confidence": "high"
+    },
+    "core_business_alignment": {
+      "level": "full",
+      "evidence": "investment in artificial intelligence spans various domains including cloud computing (AWS)",
+      "reason": "AI is central to Amazon's primary revenue through AWS and consumer technology.",
+      "confidence": "high"
+    },
+    "novel_research": {
+      "level": "partial",
+      "evidence": "investment in artificial intelligence spans various domains",
+      "reason": "There is some indication of research activity, but it lacks specific novel breakthroughs.",
+      "confidence": "medium"
+    },
+    "risk_mitigation_present": {
+      "level": "partial",
+      "evidence": "challenges may arise from market saturation in smart home devices",
+      "reason": "There is general risk awareness mentioned, but no specific measures are described.",
+      "confidence": "medium"
+    },
+    "infrastructure_moat": {
+      "level": "partial",
+      "evidence": "AWS offers a suite of machine learning services",
+      "reason": "Amazon provides AI cloud infrastructure, but it is not the dominant foundational layer for the broader AI industry.",
+      "confidence": "medium"
+    }
+  },
+  "NVDA": {
+    "enterprise_ai": {
+      "level": "none",
+      "evidence": "No mention of enterprise AI products",
+      "reason": "The summary does not indicate any enterprise AI products targeting business customers.",
+      "confidence": "high"
+    },
+    "consumer_ai": {
+      "level": "none",
+      "evidence": "No mention of consumer AI products",
+      "reason": "The summary does not indicate any consumer AI products targeting end consumers.",
+      "confidence": "high"
+    },
+    "hardware_ai": {
+      "level": "full",
+      "evidence": "NVIDIA's GPUs serve as foundational compute infrastructure for the entire AI industry",
+      "reason": "NVIDIA has proprietary AI hardware in commercial production that is widely used.",
+      "confidence": "high"
+    },
+    "public_release": {
+      "level": "partial",
+      "evidence": "Audio Flamingo 2 (AF2), an advanced audio-language model",
+      "reason": "NVIDIA has announced AI products, but they may not be fully publicly available or widely used yet.",
+      "confidence": "medium"
+    },
+    "core_business_alignment": {
+      "level": "full",
+      "evidence": "NVIDIA's GPUs serve as foundational compute infrastructure for the entire AI industry",
+      "reason": "AI is central to NVIDIA's primary revenue through its hardware products.",
+      "confidence": "high"
+    },
+    "novel_research": {
+      "level": "partial",
+      "evidence": "latest initiative includes Audio Flamingo 2 (AF2)",
+      "reason": "There is some indication of research activity, but it lacks specific novel breakthroughs.",
+      "confidence": "medium"
+    },
+    "risk_mitigation_present": {
+      "level": "none",
+      "evidence": "No mention of AI risk management",
+      "reason": "The summary does not indicate any AI risk management or compliance measures.",
+      "confidence": "high"
+    },
+    "infrastructure_moat": {
+      "level": "full",
+      "evidence": "CUDA ecosystem which dominates training workloads across sectors",
+      "reason": "NVIDIA is a dominant provider of foundational AI compute infrastructure.",
+      "confidence": "high"
+    }
+  },
+  "IBM": {
+    "enterprise_ai": {
+      "level": "full",
+      "evidence": "focusing on enterprise-level artificial intelligence solutions primarily through Watson\u2019s suite of offerings",
+      "reason": "IBM has a commercially deployed enterprise AI platform generating business revenue through Watson.",
+      "confidence": "high"
+    },
+    "consumer_ai": {
+      "level": "none",
+      "evidence": "No mention of consumer AI products",
+      "reason": "The summary does not indicate any consumer AI products targeting end consumers.",
+      "confidence": "high"
+    },
+    "hardware_ai": {
+      "level": "none",
+      "evidence": "No mention of proprietary AI hardware",
+      "reason": "The summary does not indicate any proprietary AI hardware development or production.",
+      "confidence": "high"
+    },
+    "public_release": {
+      "level": "partial",
+      "evidence": "does not disclose specific revenue figures associated with these initiatives",
+      "reason": "IBM has announced AI products, but they may not be fully publicly available or widely used yet.",
+      "confidence": "medium"
+    },
+    "core_business_alignment": {
+      "level": "full",
+      "evidence": "focusing on enterprise-level artificial intelligence solutions primarily through Watson\u2019s suite",
+      "reason": "AI is central to IBM's primary revenue through its enterprise solutions.",
+      "confidence": "high"
+    },
+    "novel_research": {
+      "level": "partial",
+      "evidence": "investing heavily in quantum computing research which intersects with advanced machine learning techniques",
+      "reason": "There is some indication of research activity, but it lacks specific novel breakthroughs.",
+      "confidence": "medium"
+    },
+    "risk_mitigation_present": {
+      "level": "partial",
+      "evidence": "potential risks include slow adoption rates among traditional enterprises",
+      "reason": "There is general risk awareness mentioned, but no specific measures are described.",
+      "confidence": "medium"
+    },
+    "infrastructure_moat": {
+      "level": "none",
+      "evidence": "No mention of foundational AI compute or infrastructure",
+      "reason": "The summary does not indicate any role in foundational AI compute or infrastructure.",
+      "confidence": "high"
+    }
+  }
+}
