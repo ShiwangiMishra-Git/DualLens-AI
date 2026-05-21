@@ -93,11 +93,11 @@ Passing five company PDFs directly to `gpt-4o-mini` for investment ranking excee
 | `core_business_alignment` | Direct revenue impact — AI drives primary business model |
 | `enterprise_ai` | Recurring enterprise revenue — B2B platform and SaaS contracts |
 | `public_release` | Commercialisation maturity — product is live, not just announced |
-| `hardware_ai` | Infrastructure moat — proprietary silicon creates defensible margin |
+| `hardware_ai` | Silicon ownership — proprietary AI chips in production enable vertical integration and defensible margin |
 | `consumer_ai` | Market reach — consumer data advantage and engagement at scale |
 | `novel_research` | Future growth — research pipeline signals next-generation products |
 | `risk_mitigation_present` | Governance quality — proactive risk management reduces regulatory risk |
-| `infrastructure_moat` | Structural moat — foundational compute dependency (e.g. CUDA ecosystem) creates durable competitive advantage |
+| `infrastructure_moat` | Structural moat — foundational AI compute dependency (cloud platforms e.g. Azure/AWS score partial; de facto compute standard e.g. CUDA scores full) creates industry-wide switching costs |
 
 ---
 
