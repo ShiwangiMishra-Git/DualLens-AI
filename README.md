@@ -34,7 +34,7 @@ It does so across three investor profiles — **Conservative**, **Balanced**, an
 
 ## Problem Statement
 
-Passing five company PDFs directly to `gpt-4o-mini` for investment ranking exceeded the model's context window (~128k tokens). A RAG pipeline with map-reduce summarization was built to compress PDF content into per-company AI initiative summaries, which are then used for both qualitative analysis and signal extraction.
+Five company PDFs exceeded the model's context window. A RAG pipeline with map-reduce summarisation compresses each PDF into a per-company AI summary used for signal extraction and ranking.
 
 ---
 
@@ -77,12 +77,12 @@ Passing five company PDFs directly to `gpt-4o-mini` for investment ranking excee
 
 ## Pipeline Workflow
 
-1. **Financial Analysis (Section 3)** — pulls 3-year price history and 5 financial metrics via yfinance; plots closing prices; ranks companies on each metric
-2. **RAG Pipeline (Section 4)** — embeds PDF chunks into ChromaDB; answers investment questions with retrieved evidence; evaluated by LLM-as-Judge
-3. **Map-Reduce Summarization** — generates a per-company AI initiative summary that fits within the LLM context window
-4. **LLM Scoring / Section 5A** — single LLM call assigns scores and writes a ranked narrative per strategy
-5. **Deterministic Scoring / Section 5B** — LLM classifies 8 AI signals; Python computes all scores and rankings; LLM writes explanation from pre-computed results
-6. **Evaluation** — three gpt-4o judge calls score signal groundedness, explanation consistency, and relevance
+1. **Financial Analysis** — 3-year price history and 5 metrics via yfinance; rank-based scoring per strategy
+2. **RAG Pipeline** — PDF chunks embedded in ChromaDB; investment questions answered with retrieved evidence
+3. **Map-Reduce Summarisation** — per-company AI summary compressed to fit LLM context window; cached to disk
+4. **LLM Scoring (5A)** — single LLM call assigns scores and writes a ranked narrative
+5. **Deterministic Scoring (5B)** — LLM classifies 8 signals; Python computes all scores; recommended approach
+6. **Evaluation** — three `gpt-4o` judge calls: signal groundedness, explanation consistency, relevance
 
 ---
 
@@ -109,7 +109,7 @@ Passing five company PDFs directly to `gpt-4o-mini` for investment ranking excee
 | Balanced | MSFT | 3.49/4.5 Buy | GOOGL | 3.26/4.5 Buy | AMZN | 3.01/4.5 Hold |
 | Growth | MSFT | 3.41/4.5 Buy | GOOGL | 3.28/4.5 Buy | AMZN | 2.96/4.5 Hold |
 
-**NVIDIA (NVDA):** Earns a *Hold* under the Growth strategy (`infrastructure_moat=full`, `hardware_ai=full` — CUDA/GPU dominance contributes 1.10 pts under growth weights) but *Sell* under Conservative and Balanced, where its zero enterprise/consumer AI signals and high Beta/P/E suppress its score.
+**NVIDIA (NVDA):** *Hold* under Growth (`hardware_ai=full`, `infrastructure_moat=full` — CUDA dominance contributes 1.10 pts at growth weights); *Sell* under Conservative and Balanced where zero enterprise/consumer signals dominate.
 
 **Robustness:** Weight Sensitivity Analysis confirms rankings are stable across all ±20% weight shifts.
 
@@ -141,7 +141,7 @@ Create a `config.json` file in the project root:
 }
 ```
 
-> Tested against the Great Learning OpenAI-compatible proxy using `gpt-4o-mini` for the pipeline and `gpt-4o` for evaluation. See `.env.example` for a reference of the required fields.
+> Tested against the Great Learning OpenAI-compatible proxy using `gpt-4o-mini` for the pipeline and `gpt-4o` for evaluation.
 
 ### 4. Run the notebook
 
@@ -174,7 +174,7 @@ DualLens-AI/
 ├── README.md                              ← this file
 ├── requirements.txt                       ← pinned dependencies
 ├── .gitignore
-├── .env.example                           ← credential template
+├── config.json                            ← API credentials (create locally; gitignored)
 ├── LICENSE                                ← MIT
 ├── notebooks/
 │   ├── DualLens_Analytics.ipynb          ← clean notebook (run top-to-bottom)
@@ -206,12 +206,20 @@ DualLens-AI/
 
 | Enhancement | What It Enables |
 |---|---|
-| Persist ChromaDB to disk | Scale to S&P 500 tech sector without re-embedding on every run |
-| Add `revenueGrowth`, `forwardPE`, `freeCashflow` metrics | Distinguish profitable growers from large-but-stagnant companies |
-| Streamlit / Gradio UI | Make the tool usable by non-technical investors |
+| Persist ChromaDB to disk | Scale beyond 5 companies without re-embedding on every run |
+| Add `revenueGrowth`, `forwardPE`, `freeCashflow` | Distinguish profitable growers from large-but-stagnant companies |
+| Streamlit / Gradio UI | Make rankings accessible to non-technical investors |
 | Real-time news + earnings transcripts | Keep rankings current beyond static PDFs |
-| Backtesting against historical data | Validate whether AI-recommended portfolios outperformed the market |
-| Agentic architecture | Orchestrator dynamically decides which tools to call; reflects and retries on low-confidence results |
+| Agentic architecture | Orchestrator dynamically selects tools; reflects and retries on low-confidence results |
+
+---
+
+## Key Takeaways
+
+- **RAG enables qualitative retrieval** — company AI initiative PDFs are chunked, embedded, and retrieved with company-aware metadata filtering
+- **Deterministic scoring improves reproducibility** — confining the LLM to 3-label signal classification and computing all arithmetic in Python eliminates run-to-run variance
+- **Strategy-specific weighting changes outcomes** — NVDA flips from Sell to Hold under Growth weights, where `hardware_ai` and `infrastructure_moat` dominate
+- **Evaluation confirms quality** — LLM-as-Judge scores all three dimensions at 5/5: signal groundedness, explanation consistency, and relevance
 
 ---
 
