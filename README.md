@@ -10,6 +10,8 @@
 
 [![View Notebook](https://img.shields.io/badge/nbviewer-View%20Executed%20Notebook-orange?logo=jupyter)](https://nbviewer.org/github/ShiwangiMishra-Git/DualLens-AI/blob/master/notebooks/DualLens_Analytics_executed.ipynb)
 [![HTML Report](https://img.shields.io/badge/report-HTML%20Export-blueviolet)](https://htmlpreview.github.io/?https://raw.githubusercontent.com/ShiwangiMishra-Git/DualLens-AI/master/reports/DualLens_Analytics_executed.html)
+[![HLD](https://img.shields.io/badge/docs-HLD-informational)](docs/HLD.md)
+[![LLD](https://img.shields.io/badge/docs-LLD-informational)](docs/LLD.md)
 
 An investment ranking system for five major tech companies (MSFT, GOOGL, AMZN, NVDA, IBM) that combines **quantitative financial analysis** with **qualitative AI initiative analysis** using RAG, LLM signal extraction, and deterministic Python scoring.
 
@@ -182,6 +184,9 @@ DualLens-AI/
 ├── data/
 │   ├── Companies-AI-Initiatives.zip      ← source PDFs (auto-extracted at runtime)
 │   └── Companies-AI-Initiatives/         ← extracted PDFs (GOOGL MSFT IBM NVDA AMZN)
+├── docs/
+│   ├── HLD.md                             ← High-Level Design
+│   └── LLD.md                             ← Low-Level Design
 ├── cache/                                 ← generated at runtime; gitignored
 └── outputs/                               ← generated at runtime; gitignored
 ```
